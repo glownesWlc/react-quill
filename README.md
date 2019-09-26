@@ -2,6 +2,7 @@ React-Quill [![Build Status](https://travis-ci.org/zenoamaro/react-quill.svg?bra
 [![npm downloads](https://img.shields.io/npm/dt/react-quill.svg?maxAge=2592000)](http://www.npmtrends.com/react-quill)
 ==============================================================================
 
+greg was here2
 A [Quill] component for [React].
 
 See a [live demo] or [Codepen](http://codepen.io/alexkrolick/pen/xgyOXQ/left?editors=0010#0).
@@ -563,7 +564,7 @@ import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill'; // ES6
 
 `value`
 : Value for the editor as a controlled component. Can be a string containing HTML, a [Quill Delta](https://quilljs.com/docs/delta/) instance, or a plain object representing a Delta.
-  Note that due to limitations in Quill, this is actually a _semi-controlled_ mode, meaning that the edit is not prevented, but changing `value` will still replace the contents. 
+  Note that due to limitations in Quill, this is actually a _semi-controlled_ mode, meaning that the edit is not prevented, but changing `value` will still replace the contents.
   Also note that passing a Quill Delta here, and then an HTML string, or vice-versa, will always trigger a change, regardless of whether they represent the same document.
   ⚠️ Do not pass the `delta` object from the `onChange` event as `value`, as it will cause a loop. See [Using Deltas](#using-deltas) for details.
 
@@ -651,30 +652,30 @@ class Editor extends React.Component {
     this.quillRef = null;      // Quill instance
     this.reactQuillRef = null; // ReactQuill component
   }
-  
+
   componentDidMount() {
     this.attachQuillRefs()
   }
-  
+
   componentDidUpdate() {
     this.attachQuillRefs()
   }
-  
+
   attachQuillRefs = () => {
     if (typeof this.reactQuillRef.getEditor !== 'function') return;
     this.quillRef = this.reactQuillRef.getEditor();
   }
-  
+
   insertText = () => {
     var range = this.quillRef.getSelection();
     let position = range ? range.index : 0;
     this.quillRef.insertText(position, 'Hello, World! ')
   }
-  
+
   render() {
     return (
       <div>
-        <ReactQuill 
+        <ReactQuill
           ref={(el) => { this.reactQuillRef = el }}
           theme={'snow'} />
         <button onClick={this.insertText}>Insert Text</button>
